@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>gif</title>
+</head>
+<body>
+<div class = "jumbotron"> 
+<h2>Time To Get Giffy With It!</h2>
+<div id="buttons-view"></div>
+<div id = submit>
+<input type="text" placeholder="Search for an animal gif..">
+<button type="submit">Submit</button>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+//Creating a Query for the memes
+var queryURL = "https://api.giphy.com/v1/gifs/random?&api_key=dc6zaTOxFJmzC&tag=animals";
+//Animals Array
+var animals = ["cats", "dogs", "rhinos", "mouse", "snakes", "rabbits", "frogs", "lions", "tigers"]
+
+//function for displaying gif datas
+function renderButtons() {
+
+//looping through array of animals
+for (var i = 0; i < animals.length; i++) {
+//Generating buttons for each movies in the array
+var animalsButton = $("<button>");
+//Adding a class
+animalsButton.addClass("animal");
+//Adding a data-attribute with value of movie at index i
+animalsButton.attr("data-name", animals[i]);
+//Providing the buttons text inside of the page
+animalsButton.text(animals[i]);
+//Appending the buttons onto the page
+$("#buttons-view").append(animalsButton);
+}
+}
+
+//Handles the events when the button is clicked on
+$("#submit").on("click", function(event) {
+    event.preventDefault();
+    var animal = $("#submit").val().trim();
+    //Adding the movies into the input box
+    animals.push(animal);
+    renderButtons();
+});    
+renderButtons();
+
+</script>
+</div>
+</body>
+</html>
