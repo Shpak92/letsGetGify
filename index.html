@@ -4,26 +4,52 @@
     <meta charset="utf-8">
     <title>gif</title>
 </head>
+
 <body>
-<div class = "jumbotron"> 
-<h2>Time To Get Giffy With It!</h2>
-<div id="buttons-view"></div>
-<div id = submit>
-<input type="text" placeholder="Search for an animal gif..">
-<button type="submit">Submit</button>
-</div>
+
+        <div class="container">
+          <h1>Get Giffy With it</h1>
+      
+          <!-- Gifs will get dumped here -->
+          <div id="buttons-view"></div>
+      
+          <form id="gif-form">
+            <label for="gif-input">Add a Gif!</label>
+            <input type="text" id="gif-input"><br>
+      
+            <!-- Button triggers new movie to be added -->
+            <input id="add-gif" type="submit" value="Add a gif!">
+          </form>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-//Creating a Query for the memes
-var queryURL = "https://api.giphy.com/v1/gifs/random?&api_key=dc6zaTOxFJmzC&tag=animals";
+
 //Animals Array
 var animals = ["cats", "dogs", "rhinos", "mouse", "snakes", "rabbits", "frogs", "lions", "tigers"]
 
+$(document).on("click",".animal",
+function(event){
+    var animal =$(this).attr("data-name");
+    var queryURL = "https://api.giphy.com/v1/gifs/search";
+    var api_key = "X2qWALsGzhililYQYOjsLJF69wvVarZw"
+    var giphySearch = queryURL + "?" + "q=" + animal + "&api_key="+ api_key;   
+
+    $.ajax({
+        url: giphySearch,
+        method: "GET"
+    }).then(function(response){
+        var data = response.data;
+        console.log(data)
+        })
+});
+
+    
+
 //function for displaying gif datas
 function renderButtons() {
-
+//Not having the buttons repeating
+$("#buttons-view").empty();
 //looping through array of animals
 for (var i = 0; i < animals.length; i++) {
 //Generating buttons for each movies in the array
@@ -40,14 +66,20 @@ $("#buttons-view").append(animalsButton);
 }
 
 //Handles the events when the button is clicked on
-$("#submit").on("click", function(event) {
+$("#add-gif").on("click", function(event) {
+    console.log("add button click");
     event.preventDefault();
-    var animal = $("#submit").val().trim();
-    //Adding the movies into the input box
+    var animal = $("#gif-input").val().trim();
+    //Adding the gifs into the input box
     animals.push(animal);
+    console.log(animals)
     renderButtons();
-});    
+    displayGifInfo();
+});
+
 renderButtons();
+
+
 
 </script>
 </div>
