@@ -1,9 +1,7 @@
-body{
-    text-align: center;
-    margin: 20%;
-    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+#header{
+    text-align:center;
 }
-
-.container{
-    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+body{
+    background-image: linear-gradient(to right, #a8caba 0%, #5d4157 100%);
+    text-align: center
 }
