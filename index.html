@@ -5,34 +5,52 @@
     <title>gif</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet"  href = "/assets/css/style.css">
 
   </head>
+  <header>
+
+      <div class="jumbotron jumbotron-fluid">
+        <div id = header>
+          <div class="container">
+            <h1 style = "text-align: center" class="display-4">Get Giffy With it</h1>
+            <iframe src="https://giphy.com/embed/3o7TKsoVuOCiiw7Zx6" width="480" height="266" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/nfl-football-dallas-cowboys-3o7TKsoVuOCiiw7Zx6">via GIPHY</a></p>            <p style = "text-align: center" class="lead">Click get started to have fun!</p>
+            <p style = "text-align: center" >
+                <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Lets Get Started </a>
+              </p>
+              <div class="row">
+                <div class="col">
+                  <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <div class="card card-body">
+                        <div id="gifBtn"></div>
+      
+                        <form id="gif-form">
+                          <label  for="gif-input">Add a Gif!</label>
+                          <input  type="text" id="gif-input"><br>
+                    
+                          <!-- Button triggers new gifs to be added -->
+                          <input id="add-gif" type="submit" value="Add a gif!">
+                         </form>
+
+              
+                  </div>
+                </div>
+                </div>
+        </div>
+        </div>
+      </div>
+
+  </header>
+
 
 <body>
+      <!-- Store the gifs -->
+      <div id = "gifsPhotos">
+              
+        </div>
 
-        <div class="container">
-          <h1>Get Giffy With it</h1>
-      
-          <!-- Gifs will get dumped here -->
-          <div id="gifBtn"></div>
-      
-          <form id="gif-form">
-            <label for="gif-input">Add a Gif!</label>
-            <input type="text" id="gif-input"><br>
-      
-            <!-- Button triggers new gifs to be added -->
-            <input id="add-gif" type="submit" value="Add a gif!">
-           </form>
-            <!-- Store the gifs -->
-
-          <div id = "gifsPhotos">
-
-          </div>
-
-</div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src = "assets/javascript/gif.js"></script>
