@@ -24,9 +24,9 @@ $(document).ready(function() {
     $(".gifBtn").removeClass("active");
     $(this).addClass("active");
    
-    var animal =$(this).attr("data-name");
-    var queryURL = "http://api.giphy.com/v1/gifs/search";
-    var api_key = "X2qWALsGzhililYQYOjsLJF69wvVarZw"
+    var animal =$(this).attr("data-type");
+    var queryURL = "https://api.giphy.com/v1/gifs/search";
+    var api_key = "X2qWALsGzhililYQYOjsLJF69wvVarZw";
     var giphySearch = queryURL + "?" + "q=" + animal + "&api_key="+ api_key;  
 
     $.ajax({
@@ -35,13 +35,15 @@ $(document).ready(function() {
       })
     .then(function(response) {
         var results = response.data;
+        console.log(results);
+
         
         for (var i = 0; i < results.length; i++) {
-            var animalDiv = $("<div class=\"animal-item\">");
-           
-            var rating = results[i].rating;
+          var animalDiv = $("<div class=\"animal-item\">");
 
-            var paragraphRating = $("<p>").text("Rating: " + rating);
+            var rating = results[0].rating;
+
+            var p= $("<p>").text("Rating: " + rating);
 
 
           var animated = results[i].images.fixed_height.url;
@@ -54,7 +56,7 @@ $(document).ready(function() {
           gifImage.attr("data-state", "still");
           gifImage.addClass("clickGif");
 
-          animalDiv.append(paragraphRating);
+          animalDiv.append(p);
           animalDiv.append(gifImage);
 
           $("#gifsPhotos").append(gifImage);
