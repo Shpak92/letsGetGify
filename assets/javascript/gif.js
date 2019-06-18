@@ -1,8 +1,8 @@
 $(document).ready(function() {
     //Creating array to populate animals
     var animals = [
-        "cats", "dogs", "rhinos", "mouse", "snakes", "rabbits", 
-        "frogs", "lions", "tigers"
+        "cats", "dogs", "rhinos", "bears", "snakes", "rabbits", 
+        "turtle", "lions", "tigers"
     ];   
     // To add the buttons to the page
     function addAnimals (animalArray, gifClass, dataAdd)
